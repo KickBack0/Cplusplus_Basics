@@ -1,0 +1,88 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <chrono>
+#include <random>
+template<typename func,typename...Args>
+double timeFunction(func,Args&&...args){
+    auto start=std::chrono::high_resolution_clock::now();
+    func(std::forward<Args>(args)...);
+    auto end=std::chrono::high_resolution_clock::now();
+    return std::chrono::duration<double,std::milli>(end-start).count();
+}
+int getFirstElement(const std::vector<int>&v){
+return v.at(0);
+}
+int binarySearch(const std::vector<int>&v,int target){
+    int low=0;
+    int high=v.size()-1;
+    while(low<=high){
+        int mid=low+(high-low)/2;
+        if(v.at(mid)==target){
+            return mid;
+        }
+        if(v.at(mid)<target){
+            low=mid+1;
+        }
+        else{
+            high=mid-1;
+        }
+    }
+    return false;
+}
+int findMax(const std::vector<int>&v){
+    int max=v.at(0);
+    for(int i:v){
+        if(i>max){
+            max=i;
+        }
+    }
+    return max;
+}
+void mergeSort(std::vector<int>&v,int left,int right){
+    if(left<right){
+        int mid=left+(right-left)/2;
+        mergeSort(v,left,mid);
+        mergeSort(v,mid+1,right);
+        merge(v,left,mid,right);
+    }
+    return;
+}
+void merge(std::vector<int>&v,int left,int right){
+    for(int i=0;i<n1;++i){
+
+    }
+    for(int j=0;j<n2;++j){
+        
+    }
+}
+void bubbleSort(std::vector<int>&v){
+    return;
+}
+int fibonacci(int max){
+    if(max<=1) return max;
+    
+    return fibonacci(max-1)+fibonacci(max-2);
+}
+void generatePermutations(std::vector<int>&v,int l,int r){
+
+}
+int main(){
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(INT_MIN,INT_MAX);
+
+    std::vector<int> v(1000000);
+    for(int&num:v){
+        num=dist(gen);
+    }
+    std::count<<v.at(0)<<std::endl;
+    std::count<<v.at(100)<<std::endl;
+    std::count<<v.at(1000)<<std::endl;
+    std::count<<v.at(v.size()-1)<<std::<<std::endl<<std::endl;
+    std::count<<timeFunction
+    std::vector<int>sorted=std::sort
+}
