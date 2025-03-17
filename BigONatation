@@ -51,7 +51,7 @@ void mergeSort(std::vector<int>&v,int left,int right){
     }
     return;
 }
-void merge(std::vector<int>&v,int left,int right){
+void merge(std::vector<int>&v,int left,int mid,int right){
     for(int i=0;i<n1;++i){
 
     }
@@ -60,15 +60,37 @@ void merge(std::vector<int>&v,int left,int right){
     }
 }
 void bubbleSort(std::vector<int>&v){
-    return;
+    bool swapped;
+    for (int outer= 0;outer<v.size()-1;++outer){
+        swapped=false;
+        for (int inner= 0;inner<v.size()-outer-1;++inner){
+            if(v.at(inner)>v.at(inner+1)){
+                std::swap(v[inner]>v[inner+1]);
+                swapped=true;
+            }
+        }
+        if(!swapped){
+            break;
+        }
+        
+    }
 }
 int fibonacci(int max){
     if(max<=1) return max;
     
     return fibonacci(max-1)+fibonacci(max-2);
 }
-void generatePermutations(std::vector<int>&v,int l,int r){
-
+void generatePermutations(std::vector<int>&v,int l,int r,std::vector<std::vector<int>>&results){
+    if(l==r){
+        results.push_back(v);
+        return;
+    }
+    for(int i=l;i<=r;++i){
+        std::swap(v[l],v[i]);
+        generatePermutations(v,l+1,r,results);
+        std::swap(v[l],v[i]);
+    }
+    
 }
 int main(){
     std::random_device rd;
@@ -83,6 +105,9 @@ int main(){
     std::count<<v.at(100)<<std::endl;
     std::count<<v.at(1000)<<std::endl;
     std::count<<v.at(v.size()-1)<<std::<<std::endl<<std::endl;
-    std::count<<timeFunction
+    std::count<<""<<timeFunction(bubbleSort,v)<<timeFunction()
     std::vector<int>sorted=std::sort
+    std::vector<std::vector<int>>results;
+    std::count<<""<<timeFunction(bubbleSort,v)<<timeFunction()
+    std::count<<""<<results
 }
